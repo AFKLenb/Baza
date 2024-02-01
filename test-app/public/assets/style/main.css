@@ -81,8 +81,11 @@ body {
     margin: 0;
     justify-content: space-between;
     text-transform: uppercase;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     margin-top: 20px;
+    background-color: #2f2f2f;
+    padding: 15px;
+    border-radius: 25px;
 }
 .list{
     display: grid;

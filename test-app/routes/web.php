@@ -21,6 +21,9 @@ Route::get('/', [\App\Http\Controllers\FrontendController::class, 'index'])->nam
 Route::get('/category', [\App\Http\Controllers\FrontendController::class, 'category'])->name('category');
 Route::get('/products/{id}', [\App\Http\Controllers\FrontendController::class, 'products'])->name('products');
 Route::get('/product-card/{id}', [\App\Http\Controllers\FrontendController::class, 'product'])->name('product');
+Route::get('/collection', [\App\Http\Controllers\FrontendController::class, 'collection'])->name('collection');
+Route::get('/cums/{id}', [\App\Http\Controllers\FrontendController::class, 'cums'])->name('cums');
+Route::get('/cum-card/{id}', [\App\Http\Controllers\FrontendController::class, 'cum'])->name('cum');
 Route::prefix('/post',)->group(function (){
     Route::get('/index', [\App\Http\Controllers\PostController::class, 'index'])->name('post.index');
     Route::get('/create', [\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
@@ -47,4 +50,22 @@ Route::prefix('/product')->group(function (){
     Route::post('/store', [\App\Http\Controllers\Admin\ProductController::class, 'store'])->name('product.store');
     Route::put('/update/{product}', [\App\Http\Controllers\Admin\ProductController::class, 'update'])->name('product.update');
     Route::delete('/delete/{product}', [\App\Http\Controllers\Admin\ProductController::class, 'destroy'])->name('product.delete');
+});
+Route::prefix('/collection')->group(function (){
+    Route::get('/index', [\App\Http\Controllers\Admin\CollectionController::class, 'index'])->name('collection.index');
+    Route::get('/create', [\App\Http\Controllers\Admin\CollectionController::class, 'create'])->name('collection.create');
+    Route::get('/edit/{collection}', [\App\Http\Controllers\Admin\CollectionController::class, 'edit'])->name('collection.edit');
+    Route::get('/show/{collection}', [\App\Http\Controllers\Admin\CollectionController::class, 'show'])->name('collection.show');
+    Route::post('/store', [\App\Http\Controllers\Admin\CollectionController::class, 'store'])->name('collection.store');
+    Route::put('/update/{collection}', [\App\Http\Controllers\Admin\CollectionController::class, 'update'])->name('collection.update');
+    Route::delete('/delete/{collection}', [\App\Http\Controllers\Admin\CollectionController::class, 'destroy'])->name('collection.delete');
+});
+Route::prefix('/cum')->group(function (){
+    Route::get('/index', [\App\Http\Controllers\Admin\CumController::class, 'index'])->name('cum.index');
+    Route::get('/create', [\App\Http\Controllers\Admin\CumController::class, 'create'])->name('cum.create');
+    Route::get('/edit/{cum}', [\App\Http\Controllers\Admin\CumController::class, 'edit'])->name('cum.edit');
+    Route::get('/show/{cum}', [\App\Http\Controllers\Admin\CumController::class, 'show'])->name('cum.show');
+    Route::post('/store', [\App\Http\Controllers\Admin\CumController::class, 'store'])->name('cum.store');
+    Route::put('/update/{cum}', [\App\Http\Controllers\Admin\CumController::class, 'update'])->name('cum.update');
+    Route::delete('/delete/{cum}', [\App\Http\Controllers\Admin\CumController::class, 'destroy'])->name('cum.delete');
 });
